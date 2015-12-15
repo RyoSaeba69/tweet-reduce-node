@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ################################################
 ###############  .gitignore   ##################
 ################################################
@@ -116,3 +117,17 @@ npm-debug.log
 nbproject
 .idea
 .node_history
+=======
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+>>>>>>> a11f046a74aebaaf252d69705d987356c91eff9e
