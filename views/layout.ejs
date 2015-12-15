@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>New Sails App</title>
+
+  <meta name="name" content="content">
+  <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+
+  <script src="/js/dependencies/sails.io.js"></script>
+  <script src="/js/dependencies/randomColor.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/bower_components/Chart.js/Chart.js">
+  </script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/spin.js/spin.js"></script>
+  <script src="/bower_components/angular-spinner/angular-spinner.js"></script>
+  <script src="/js/index.js"></script>
+
+
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  <link rel="stylesheet" href="/styles/importer.css">
+</head>
+
+<body ng-app="hadoweb">
+  <div ng-controller="hadowebCtrl">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tweet reduce</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="row">
+
+      <div class="col-md-3">
+
+        <form class="form">
+          <div class="form-group">
+            <label for="exampleInputName2">Search</label>
+            <input type="text" class="form-control" ng-model="search" placeholder="Search">
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount">Timeout</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="exampleInputAmount" placeholder="Timeout" ng-model="time">
+              <div class="input-group-addon">Seconds</div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-default" ng-click="analyze(search, time)">Search</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <span us-spinner spinner-key="chart-spinner"></span>
+      </div>
+
+      <div class="col-md-3">
+        <table class="table table-striped">
+          <tr>
+            <th>Color</th>
+            <th>Word</th>
+            <th>Count</th>
+          </tr>
+          <tr ng-repeat="item in pieData">
+            <td ng-style="{'background-color': item.color}"></td>
+            <td>{{item.label}}</td>
+            <td>{{item.value}}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- RES ==> {{res}} -->
+
+
+      <div>
+
+
+      </div>
+
+</body>
+
+</html>
