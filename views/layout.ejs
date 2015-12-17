@@ -68,7 +68,18 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-default" ng-click="analyze(search, time)">Search</button>
+          <div class="radio">
+            <label>
+              <input type="radio" value="happy" ng-model="mode" checked> Happy/Sad
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" value="words" ng-model="mode"> Words
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-default" ng-click="analyze(search, time, mode)" ng-disabled="loading">Search</button>
         </form>
       </div>
       <div class="col-md-6">
@@ -79,14 +90,14 @@
       <div class="col-md-3">
         <table class="table table-striped">
           <tr>
+            <th>Count</th>
             <th>Color</th>
             <th>Word</th>
-            <th>Count</th>
           </tr>
-          <tr ng-repeat="item in pieData">
+          <tr ng-repeat="item in pieData | orderBy:'-value'">
+            <td>{{item.value}}</td>
             <td ng-style="{'background-color': item.color}"></td>
             <td>{{item.label}}</td>
-            <td>{{item.value}}</td>
           </tr>
         </table>
       </div>

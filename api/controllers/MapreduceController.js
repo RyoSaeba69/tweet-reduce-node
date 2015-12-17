@@ -20,12 +20,14 @@ module.exports = {
    * `MapreduceController.countTweets()`
    */
   countTweets: function(req, res) {
+      console.log("MOOODE ", req.params.mode);
 
       var secTimeout = req.params.time * 1000;
 
-      req.connection.setTimeout(secTimeout + 10000); // timeout + 10s
+    //   req.connection.setTimeout(secTimeout + 10000); // timeout + 10s
+      req.connection.setTimeout(0); // timeout + 10s
       console.log("COUNT TWEET");
-    JarService.search(req.params.search, secTimeout, function(result) {
+    JarService.search(req.params.search, secTimeout, req.params.mode,function(result) {
         return res.json(result)
 	});
 

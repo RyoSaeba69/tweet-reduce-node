@@ -12,10 +12,10 @@ var outRes = outPath + "/part-r-00000";
 
 module.exports = {
 
-  search: function(search, timeout, cb) {
+  search: function(search, timeout, mode, cb) {
     console.log("SEARCH ", search, " TIMEOUT ", timeout);
     timeout = timeout || 30000;
-    exec("hadoop jar " + jarPath + " " + search + " " + timeout + " " + outPath, function(error, stdout, stderr) {
+    exec("hadoop jar " + jarPath + " " + mode + " " + search + " " + timeout + " " + outPath, function(error, stdout, stderr) {
 
     //   console.log("ERR ", error, "OUT ", stdout, "STDERR ", stderr);
       var resFile = fs.readFileSync(outRes, 'utf8');

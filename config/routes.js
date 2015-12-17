@@ -47,6 +47,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'GET /mapreduce/count/:search/:time': 'MapreduceController.countTweets'
+  'GET /mapreduce/count/:search/:time/:mode': 'MapreduceController.countTweets'
 
 };
